@@ -3,26 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rahul Portfolio</title>
+  <title>Rahul Portfolio - Home</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
-
 <body>
 
   <nav class="navbar">
-    <h1>Rahul</h1>
-
+    <h1>Rahul.</h1>
     <ul class="desktop-nav">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="cyberSafety.html">Cyber Safety</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-
     <div class="menu-btn">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </div>
   </nav> 
   
@@ -30,45 +26,40 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="cyberSafety.html">Cyber Safety</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
-<main class="main-content">
-    <section class="sec"> 
-      <div class="status-badge">
-        <span class="pulse-dot"></span>
-        Available for new projects
-      </div>
 
+  <main class="home-main">
+    <div class="home-text">
+      <div class="status-badge">Available for opportunities</div>
       <h1>Hi, I'm <span>Rahul</span>.</h1>
+      <h2>Building <span class="changing-text">intuitive digital experiences</span></h2>
+      <p>I am a web developer focused on writing clean, scalable code and designing elegant, user-centric interfaces.</p>
       
-      <h2>I engineer <span class="changing-text">Interactive UIs</span></h2>
-      
-      <p>A frontend developer bridging the gap between pixel-perfect design and high-performance web experiences.</p>
-    </section>
+      <div class="home-buttons">
+        <button class="btn-primary" onclick="window.location.href='about.html'">Learn More</button>
+        <button class="btn-secondary" onclick="window.location.href='contact.html'">Contact Me</button>
+      </div>
+    </div>
 
-    <section class="sec"> 
-      <button class="btn-primary">View My Work</button>
-      <button class="btn-secondary">Contact Me</button>
-    </section>
+    <div class="home-image-container">
+      <img src="images/person.avif" alt="Rahul Portrait" class="home-image">
+    </div>
   </main>
 
   <footer class="footer">
-    <div class="copyright"> 
-      &copy; 2026 Rahul
-    </div>
-
+    <div class="copyright">&copy; 2026 Rahul</div>
     <div>
       <ul class="icons"> 
-        <li><img src="images/instagram.png" alt="Instagram Icon" /></li>
-        <li><img src="images/email.png" alt="Email Icon" /></li>
-        <li><img src="images/linkedin.png" alt="LinkedIn Icon" /></li>
+        <li><img src="images/instagram.png" alt="IG" style="width:16px;"></li>
+        <li><img src="images/linkedin.png" alt="IN" style="width:16px;"></li>
       </ul>
     </div>
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="js/script.js"></script>
-
 </body>
 </html>

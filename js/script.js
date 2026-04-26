@@ -1,84 +1,63 @@
-const menuBtn=document.querySelector('.menu-btn');
-const sidebar=document.querySelector('.sidebar');
-const navItems=document.querySelectorAll('.nav-links li');
+const menuBtn = document.querySelector('.menu-btn');
+const sidebar = document.querySelector('.sidebar');
+const navItems = document.querySelectorAll('.nav-links li');
 
 if(menuBtn && sidebar){
+  const tl = gsap.timeline({paused:true});
 
-const tl=gsap.timeline({paused:true});
+  tl.to(sidebar,{
+    x: 0,
+    duration: 0.4,
+    ease: 'power3.out'
+  });
 
-tl.to(sidebar,{
-x:0,
-duration:.45,
-ease:'power3.out'
-});
+  tl.from('.nav-links li',{
+    x: 30,
+    opacity: 0,
+    stagger: 0.1,
+    duration: 0.3
+  }, '-=0.2');
 
-tl.from('.nav-links li',{
-x:40,
-opacity:0,
-stagger:.1,
-duration:.35
-},'-=.2');
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    if(menuBtn.classList.contains('active')){
+      tl.play();
+    } else {
+      tl.reverse();
+    }
+  });
 
-menuBtn.addEventListener('click',()=>{
-menuBtn.classList.toggle('active');
-
-if(menuBtn.classList.contains('active')){
-tl.play();
-}else{
-tl.reverse();
-}
-});
-
-navItems.forEach(item=>{
-item.addEventListener('click',()=>{
-menuBtn.classList.remove('active');
-tl.reverse();
-})
-})
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      menuBtn.classList.remove('active');
+      tl.reverse();
+    });
+  });
 }
 
-/* animations */
-gsap.from('.navbar',{
-y:-40,
-opacity:0,
-duration:1
+/* Animations */
+gsap.from('.navbar', { y: -40, opacity: 0, duration: 1 });
+
+// Check for homepage elements
+if(document.querySelector('.home-text')) {
+  gsap.from('.home-text > *', { y: 30, opacity: 0, duration: 0.8, stagger: 0.15, delay: 0.2 });
+  gsap.from('.home-image', { scale: 0.9, opacity: 0, duration: 1, delay: 0.5 });
+}
+
+// Global page fades
+gsap.from('.about-main > *, .cyber-main > *, .contact-main > *', {
+  y: 30, opacity: 0, duration: 0.8, stagger: 0.15, delay: 0.2
 });
 
-gsap.from('.main-content h1, .main-content h2, .main-content p',{
-y:40,
-opacity:0,
-duration:1,
-stagger:.18,
-delay:.3
-});
-
-gsap.from('button',{
-scale:.8,
-opacity:0,
-stagger:.2,
-delay:.9,
-duration:.8,
-ease:'back.out(1.7)'
-});
-
-gsap.from('.about-me,.skills,.contact-main,.footer',{
-y:30,
-opacity:0,
-duration:1,
-delay:.6
-});
-
-const skills = ["Interactive UIs", "Smooth Animations", "Clean Code"];
+// Changing Text Logic
 const changingText = document.querySelector(".changing-text");
-
-// ONLY run this if the element exists on the current page
 if (changingText) {
-  const skills = ["Interactive UIs", "Smooth Animations", "Full-Stack Apps", "Clean Code"];
+  const skills = ["intuitive digital experiences", "clean modern websites", "responsive UI designs"];
   let currentIndex = 0;
 
   function animateText() {
     gsap.to(changingText, {
-      y: -20,
+      y: -10,
       opacity: 0,
       duration: 0.5,
       onComplete: () => {
@@ -86,13 +65,11 @@ if (changingText) {
         changingText.innerText = skills[currentIndex];
         
         gsap.fromTo(changingText, 
-          { y: 20, opacity: 0 }, 
+          { y: 10, opacity: 0 }, 
           { y: 0, opacity: 1, duration: 0.5 }
         );
       }
     });
   }
-
-  setInterval(animateText, 3000);
+  setInterval(animateText, 3500);
 }
-
